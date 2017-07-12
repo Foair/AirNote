@@ -1,0 +1,443 @@
+\documentclass[shortmath]{AirNote}
+\begin{document}
+\def\thepage{π}
+\maketitle
+\frontmatter
+\pagenumbering{Roman}
+%\pagestyle{plain}
+\tableofcontents
+\mainmatter
+\pagestyle{fancy}
+\chapter{\texorpdfstring{\LaTeX}{LaTeX}}
+\section{符号定义}
+\subsection{常用符号}
+
+\begin{table}[htb]
+
+\centering
+\begin{tabular}{cccl}
+\toprule
+代码（小写） & 代码（大写） & 符号 & 名称\\
+\midrule
+\verb|\a| & \verb|A| & $\a$\quad$A$ & alpha\\
+\verb|\b| & \verb|B| & $\b$\quad$B$ & beta\\
+\verb|\g| & \verb|\Gamma| & $\g$\quad$\Gamma$ & gamma\\
+\verb|\d| & \verb|\Delta| & $\d$\quad$\Delta$ & delta\\
+\verb|\e| & \verb|E| & $\e$\quad$E$ & epsilon\\
+\verb|\z| & \verb|Z| & $\z$\quad$Z$ & zeta\\
+\verb|\h| & \verb|H| & $\h$\quad$H$ & eta\\
+\verb|\q|，\verb|\th| & \verb|\Theta| & $\q$\quad$\Theta$ & theta\\
+\verb|\i| & \verb|I| & $\i$\quad$I$ & iota\\
+\verb|\ka| & \verb|K| & $\ka$\quad$K$ & kappa\\
+\verb|\l| & \verb|\Lambda| & $\l$\quad$\Lambda$ & lambda\\
+\verb|\m| & \verb|M| & $\m$\quad$M$ & mu\\
+\bottomrule
+\end{tabular}
+\quad
+\begin{tabular}{cccl}
+\toprule
+代码（小写） & 代码（大写） & 符号 & 名称\\
+\midrule
+\verb|\n| & \verb|N| & $\n$\quad$N$ & nu\\
+\verb|\x| & \verb|\Xi| & $\x$\quad$\Xi$ & xi\\
+\verb|o| & \verb|O| & $o$\quad$O$ & omicron\\
+\verb|\pi| & \verb|\Pi| & $\pi$\quad$\Pi$ & pi\\
+\verb|\r| & \verb|P| & $\r$\quad$P$ & rho\\
+\verb|\s| & \verb|\Sigma| & $\s$\quad$\Sigma$ & sigma\\
+\verb|\t| & \verb|T| & $\t$\quad$T$ & tau\\
+\verb|\u| & \verb|\Upsilon| & $\u$\quad$\Upsilon$ & upsilon\\
+\verb|\f| & \verb|\Phi| & $\f$\quad$\Phi$ & phi\\
+\verb|\c| & \verb|X| & $\c$\quad$X$ & chi\\
+\verb|\y| & \verb|\Psi| & $\y$\quad$\Psi$ & psi\\
+\verb|\o|，\verb|\w| & \verb|\Omega| & $\o$\quad$\Omega$ & omega\\
+\bottomrule
+\end{tabular}
+
+\caption{希腊字母}
+\end{table}
+
+\begin{table}[htb]
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+代码 & 符号 & 意义\\
+\midrule
+\verb|\p| & $\p$ & 圆周率\\
+\verb|\ee| & $\ee$ & 自然常数\\
+\verb|\ii| & $\ii$ & 虚数单位\\
+\verb|\dd| & $\dd$ & 微分\\
+\verb|\pd| & $\pd$ & 偏微分\\
+\verb|\vd| & $\vd$ & 变分\\
+\verb|\abs{x}| & $\abs{x}$ & 绝对值\\
+\bottomrule
+\end{tabular}
+\caption{运算符、常数、函数}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+代码 & 符号 & 意义\\
+\midrule
+\verb|x| & $x$ & 变量\\
+\verb|\mathrm{x}| & $\mathrm{x}$ & 符号\\
+%\verb|\mb{x}| & $\mb{x}$ & 粗体\\
+\verb|\sR| & $\sR$ & 手写体\\
+\verb|\vec{a}| & $\vec{a}$ & 向量（形式 A）\\
+\verb|\vecb{a}| &$\vecb{a}$ & 向量（形式 B）\\
+\verb|\R| & $\R$ & 实数集\\
+\bottomrule
+\end{tabular}
+\caption{修饰符}
+\end{minipage}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{ccc}
+\toprule
+代码 & 符号 & 名称\\
+\midrule
+\verb|\ve| & $\ve$ & epsilon\\
+\verb|\vq|，\verb|\vth| & $\vartheta$ & theta\\
+\verb|\vk| & $\vk$ & kappa\\
+\verb|\vp| & $\vp$ & pi\\
+\verb|\vr| & $\vr$ & rho\\
+\verb|\vs| & $\vs$ & simga\\
+\verb|\j|，\verb|\vf| & $\j$ & phi\\
+\verb|\G| & $\G$ & gamma\\
+\verb|\D| & $\D$ & delta\\
+\bottomrule
+\end{tabular}
+\quad
+\begin{tabular}{ccc}
+\toprule
+代码 & 符号 & 名称\\
+\midrule
+\verb|\Q|，\verb|\Th| & $\Q$ & theta\\
+\verb|\L| & $\L$ & lambda\\
+\verb|\X| & $\X$ & xi\\
+\verb|\P| & $\P$ & pi\\
+\verb|\vS| & $\vS$ & sigma\\
+\verb|\U| & $\U$ & upsilon\\
+\verb|\F| & $\F$ & phi\\
+\verb|\Y| & $\Y$ & psi\\
+\verb|\O|，\verb|\W| & $\O$ & omega\\
+\bottomrule
+\end{tabular}
+\caption{希腊字母变体}
+\end{table}
+
+\section{环境}
+\subsection{公式}
+
+\begin{mytable}{cll}{环境}
+定义 & 用法 &说明 \\
+\midrule
+\verb|mytable| & \verb|{<对齐方式>}{<标题>}{<内容>}| & 用于生成一个简单的三线表格。 \\
+\verb|vuyi| & \verb|{<内容>}| & 用于生成一段注意的内容。 \\
+\verb|liti| & \verb|{<内容>}| & 用于生成一道例题。 \\
+\end{mytable}
+
+%\begin{tabu}{cll}
+%定义 & 用法 &说明 \\
+%\verb|mytable| & \verb|{<对齐方式>}{<标题>}{<内容>}| & 用于生成一个简单的三线表格。 \\
+%\verb|vuyi| & \verb|{<内容>}| & 用于生成一段注意的内容。 \\
+%\verb|liti| & \verb|{<内容>}| & 用于生成一道例题。 \\
+%\end{tabu}
+
+\begin{mytable}{ccl}{命令}
+定义 & 用法 & 说明 \\
+\midrule
+\verb|fm| & \verb|<空>| & 在一个段落前面产生一个标记。 \\
+\verb|dfa| & \verb|{<定义>}| & 用于标明一个定义。 \\
+\end{mytable}
+
+% \section{绘图样例}
+% \begin{figure}[htb]
+% \centering
+% \begin{tikzpicture}
+% \begin{axis}[colorbar]         % 绘制坐标，并设置一个彩色指示条
+% \addplot3[surf]                % 绘制三维图
+ % {x^2+y^2};                    % 输入二元显式函数
+% \end{axis}
+% \end{tikzpicture}
+% \caption{函数 $ f(x)=x^2+y^2 $ 的图像}
+% \end{figure}
+
+% \begin{figure}[htb]
+% \centering
+% \begin{tikzpicture}
+% \begin{axis}[
+    % title=Example using the mesh parameter, %图像的标题
+    % hide axis,                              %隐藏坐标
+    % colormap/cool,                          %颜色风格
+% ]
+% \addplot3[
+    % mesh,                                   %绘制的三维图像是网格
+    % samples=50,                             %定义域分割数量
+    % domain=-8:8,                            %定义域
+% ]
+% {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};    %二元显式函数
+% \addlegendentry{$ \frac{\sin r}{r} $}         %添加图例
+% \end{axis}
+% \end{tikzpicture}
+% \caption{二元函数 $ \frac{\sin \left(\sqrt{x^2+y^2}\right)}{\sqrt{x^2+y^2}} $ 的图像}
+% \end{figure}
+
+\chapter{高等数学}
+\section{微积分纵览}
+\subsection{高等数学的主要内容}
+一元函数微分学、一元函数积分学、矢量代数与空间解析几何、多元函数微分学、多元函数积分学、无穷级数、常微分方程．
+
+\subsection{计算平面图形的面积}
+计算半径为 $r$ 的圆的面积：
+
+假设圆的半径为 $r$，内接正 $n$ 边形，每条边所对的圆的弧度为 $\frac{2\p}{n}$，根据三角形的面积公式，每个三角形的面积为 $r^2\sin \frac{2\p}{n}$，所以正 $n$ 边形的面积为 $nr^2\sin \frac{2\p}{n}$．当 $n\ra\infty$ 时，正 $n$ 边形的面积等于圆形的面积．则有：
+
+\begin{equation}
+	A = \lim_{n\ra\infty}A_n = \lim_{n\ra\infty} n\cdot\frac 1 2 r^2 \sin \frac {2\p} n = \p r^2 \lim_{n\ra\infty}\frac{\sin \frac{2\p}{n}}{\frac{2\p}{n}}=\p r^2
+\end{equation}
+
+求解以抛物线和 $x$ 轴所围成的图形的面积：
+
+将要求的区间进行 $n$ 等分，则产生了 $n+1$ 个横坐标，分别是 $0, 1/n , 2/n , \cdots, 1$．每个小矩形的宽为 $1/n$，每个小矩形的高为其左端或右端的函数值．所以有左和和右和之分．左和为（$k = {0,1,2,\cdots,n}$）：
+
+\begin{equation}
+	\sum_{k=0}^{n-1}\frac 1n \cdot f\left(\frac kn\right)
+\end{equation}
+
+同理，右和为：
+
+\begin{equation}
+	\sum_{k=1}^{n}\frac 1n \cdot f\left(\frac kn\right)
+\end{equation}
+
+显然，曲边图形的面积介于左和与右和之间，当 $n\ra\infty$ 时，三者的大小相等，即为图形的面积．
+
+思考：如何求证圆锥的体积为 $V = \frac 13 \p r^2 h$？
+
+\subsection{计算无穷个数的和}
+求三角形数（$1,3,6,10,\cdots$）的倒数和 $s = 1/1 + 1/3 + 1/6 + \cdots$：
+
+%\begin{equation}
+%	\begin{split}
+%	\frac 12 s & = \frac 12 + \frac 16 + \frac{1}{12} + \frac{1}{20} + \cdots\\
+%	& = \frac{1}{1 \dotTimes 2} + \frac{1}{2 \dotTimes 3} + \frac{1}{3 \dotTimes 4} + \frac{1}{4 \dotTimes 5} + \cdots\\
+%	& = \left(1-\frac{1}{2}\right)+\left(\frac{1}{2}-\frac{1}{3}\right)+\left(\frac{1}{3}-\frac{1}{4}\right)+\left(\frac{1}{4}-\frac{1}{5}\right)+ \cdots\\
+%	& = 1
+%	\end{split}
+%\end{equation}
+
+\subsection{如何学习微积分}
+明确学习微积分的目的：从实际问题抽象出数学模型的能力、计算与分析的能力、了解和使用现代数学语言和符号的能力、使用数学软件学习和应用数学的能力．
+
+数学的三大特点：研究对象的抽象性、论证方法的演绎性以及应用的广泛性．
+
+怀着浓厚的兴趣学习数学：数学本身体现体现着美的神奇——和谐、简洁、对称．因为数学是美丽的，所以需要欣赏；因为数学是有趣的，故而数学可以欣赏；因为数学是有用的，因此数学值得欣赏．
+
+\section{如何用 Mathematica 做微积分}
+
+\subsection{Mathematica 基本操作}
+\begin{mytable}{cc}{基本操作快捷方式}
+	操作 & 键盘快捷方式 \\
+	\midrule
+	执行一个单元 & \verb|Shift+Enter| \\
+	停止一个单元 & \verb|Alt+.| \\
+\end{mytable}
+
+\begin{mytable}{cl}{数学常数}
+	输入 & 意义\\
+	\midrule
+	\verb|Pi| & 圆周率\\
+	\verb|Degree| & 角度（角度制）\\
+	\verb|E| & 自然常数\\
+	\verb|Infinity| & 无穷大\\
+	\verb|I| & 虚数单位\\
+\end{mytable}
+\section{集合与映射}
+\subsection{集合的概念与运算}
+自然数集$\N$，整数集 $\Z$，有理数集 $ \bQ $（分子、分母都是整数的小数，分母不为 $ 0 $），实数集 $ \R $，复数集 $ \bC $．
+
+\begin{liti}
+证明：$ A \nn (B \uu C) = (A \nn B)\uu(A \nn C)$．
+
+\fbox{$ \aa x \in A \nn (B \uu C) $}\Ra\fbox{$x \in A $ 且 $ x \in B \uu C $}\Ra\fbox{$ x \in A $ 且 $ x \in B $ 或 $ x \in C $}\Ra\fbox{$ x \in A \nn B $ 或 $ x \in A \nn C $}\\
+\Ra\fbox{$ x \in (A \nn B)\uu(A \nn C) $}\Ra\fbox{$ A \nn (B \uu C) \subset (A \nn B)\uu(A \nn C)$};
+
+\fbox{$ \aa x \in (A \nn B)\uu(A \nn C) $}\Ra\fbox{$ x \in A \nn B $ 或 $ x \in A \nn C $}\Ra\fbox{$ x \in A $ 且 $ x \in B $ 或 $ x \in A $ 且 $ x \in C $}\\
+\Ra\fbox{$ x \in A $ 且 $ x \in B $ 或 $ x \in C $}\Ra\fbox{$ x \in A $ 且 $ x \in B \uu C $}\Ra\fbox{$ x \in A \nn (B \uu C) $}\Ra\fbox{$ (A \nn B)\uu(A \nn C) \subset A \nn (B \uu C) $}．
+
+综上，$ A \nn (B \uu C) = (A \nn B)\uu(A \nn C) $ 成立．
+\end{liti}
+
+\fm \emphA{直积}（笛卡尔积）：$ A \times B = \{(x,y)|x \in A, y \in B\} $．
+
+已知 $ A = \{1,2\} $，$ B = \{2,3,4\} $，那么 $ A $ 与 $ B $ 的直积为 $ A \times B = \{(1,2),(1,3),(1,4),(2,2),(2,3),(2,4)\} $．
+
+\subsection{确界与连续性公理}
+\define{上界} 设 $ E $ 是一个非空实数集，$ M $ 是一个实常数，如果对于 $ E $ 中的任何元素 $ x $，均有 $ x \le M $，则称 $ M $ 为数集 $ E $ 的一个上界，并称 $ E $ 有上界。上界中最小的为上确界，记为 $ \sup E $。
+
+
+\define{下界} 设 $ E $ 是一个非空实数集，$ m $ 是一个实常数，如果对于 $ E $ 中的任何元素 $ x $，均有 $ x \ge M $，则称 $ M $ 为数集 $ E $ 的一个下界，并称 $ E $ 有下界。上界中最大的为下确界，记为 $ \inf E $。
+
+\begin{vuyi}
+上下界不一定是属于集合的一部分，它只是边界。
+\end{vuyi}
+
+\subsection{映射}
+\define{像和原像} 当 $ f: x\mapsto y $ 时，称 $ y $ 为 $ x $ 的像，记作 $ y = f(x) $，并称 $ x $ 为 $ y $ 的原像。
+
+图：单射和满射和双射
+
+\subsection{集合的比较}
+\define{等势} 设 $ A $、$ B $ 是两个集合，若存在一个一一映射 $ \j : A \ra B $，则称集 $ A $ 和集 $ B $ 是等势的。
+
+两个有限集是等势的，当且仅当它们的元素个数相等。
+
+\begin{vuyi}
+有理数集与无理数集是不等势的。
+\end{vuyi}
+
+\section{函数的概念与性质}
+\subsection{函数的概念}
+\define{一元函数} 设 $ D $ 是中的非空子集，称映射 $ f : D \ra R $ 为定义在 $ D $ 上的一元函数。
+
+\subsection{函数的例子}
+\begin{mytable}{cc}{函数的例子}
+函数 & 函数表达式 \\
+\midrule
+常值函数 & $ y = C $ \\
+绝对值函数 & $ y = \abs{x} $ \\
+符号函数 & $ y = \mathrm{sgn}\, x $ \\
+取整函数 & $ y = [x] $ \\
+狄利克雷函数 & $ D(x)=\begin{cases}
+1, & x \in \bQ \\
+0, & x \notin \bQ \\
+\end{cases} $ \\
+\end{mytable}
+
+\subsection{函数的运算}
+\define{复合函数} 设有两个函数 $ f : A \ra B_1 $ 与 $ g : B \ra C $，且满足 $ B_1 \subset B $，函数 $ h : A \ra C $ 定义为：对任意 $ x \in A $，有 $ h(x) = g(f(x)) $。称 $ h $ 为 $ f $ 与 $ g $ 的复合函数，记作：$ h = g \circ f $。
+
+函数 $ y = f(x) $ 与 $ x = f^{-1}(y) $ 的图形是同一个。并非是关于原点对称，当交换了位置以后（$ y = f^{-1}(x) $）两个函数关于原点对称。
+
+严格单调增加（减少）函数的反函数也是严格单调增加（减少）。
+
+\begin{vuyi}
+因为有理数和一个有理数的和是一个有理数，有理数和无理数的和是无理数，所以狄利克雷函数是一个以任意有理数为周期的周期函数。因为在数轴上关于原点对称的两个点的性质相同，所以该函数也是一个偶函数。
+\end{vuyi}
+
+\begin{liti}
+证明函数 $ f(x) = x - [x] $ 为周期函数，且 $ T = 1 $ 是它的最小正周期。
+
+$ f(x + 1) = (x + 1) - [x + 1] = (x + 1) - ([x] + 1) = x - [x] = f(x) $
+
+所以 $ T = 1 $ 是 $ f(x) = x - [x] $ 的一个周期。
+
+下面证明 $ T = 1 $ 是 $ f(x) $ 的最小正周期。如果 $ T = 1 $ 不是 $ f(x) $ 的最小正周期，则存在 $ r \in (0, 1) $ 使得 $ f(x + r) = f(x) $ 对任意的 $ x \in \R $ 成立。取 $ x = 0 $，则有 $ f(x) = f(0) $，即 $ r = 0 $，矛盾！所以 $ T = 1 $ 是 $ f(x) $ 的最小正周期。
+\end{liti}
+
+\section{初等函数}
+\subsection{基本初等函数}
+\subsubsection{幂函数}
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw [dashed,help lines] (-1,0) node[above,black]{$ -1 $} -- (-1,-1) -- (0,-1) node[right,black]{$ -1 $};
+\draw[color=WildStrawberry,domain=-1.25:1.25] plot (\x,{pow(\x,3)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[above left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw [dashed,help lines] (-1,0) node[below,black]{$ -1 $} -- (-1,1) -- (0,1);
+\draw[color=WildStrawberry,domain=-1.41:1.41] plot (\x,{pow(\x,2)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw[color=WildStrawberry,domain=0:1.31] plot (\x,{pow(\x,2.5)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw [dashed,help lines] (-1,0) node[above,black]{$ -1 $} -- (-1,-1) -- (0,-1) node[right,black]{$ -1 $};
+\draw[color=WildStrawberry,domain=-2:-0.5] plot (\x,{pow(\x,-1)});
+\draw[color=WildStrawberry,domain=0.5:2] plot (\x,{pow(\x,-1)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[above left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw [dashed,help lines] (-1,0) node[below,black]{$ -1 $} -- (-1,1) -- (0,1);
+\draw[color=WildStrawberry,domain=-2:-0.70] plot (\x,{pow(\x,-2)});
+\draw[color=WildStrawberry,domain=0.70:2] plot (\x,{pow(\x,-2)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw[color=WildStrawberry,domain=0.62:2] plot (\x,{pow(\x,-1.5)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw [dashed,help lines] (-1,0) node[above,black]{$ -1 $} -- (-1,-1) -- (0,-1) node[right,black]{$ -1 $};
+\draw[color=WildStrawberry,domain=0:2] plot (\x,{pow(\x,1/3)});
+\draw[color=WildStrawberry,domain=-2:0] plot (\x,-{pow(-\x,1/3)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[above left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw [dashed,help lines] (-1,0) node[below,black]{$ -1 $} -- (-1,1) -- (0,1);
+\draw[color=WildStrawberry,domain=0:2] plot[smooth] (\x,{pow(\x,2/5)});
+\draw[color=WildStrawberry,domain=-2:0] plot[smooth] (\x,{pow(-\x,2/5)});
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw [->] (-2.1,0) -- (2.1,0) node[below]{$ x $};
+\draw [->] (0,-2.1) -- (0,2.1) node[left]{$ y $};
+\draw [dashed,help lines] (0,1) node[left,black]{$ 1 $} -- (1,1) -- (1,0) node[below,black]{$ 1 $};
+\draw[color=WildStrawberry,domain=0:2] plot (\x,{pow(\x,0.5)});
+\end{tikzpicture}
+\section{曲线的参数方程与极坐标方程}
+\section{数列极限的概念}
+\section{数列极限的性质}
+\section{数列收敛的判定方法}
+\section{子数列与聚点原理}
+\section{无穷级数的概念与运算性质}
+\section{正项级数收敛性判别方法}
+\section{变号级数收敛性判别方法}
+\section{函数极限的概念}
+\section{函数极限的性质与运算法则}
+\section{函数极限存在性的判定准则}
+\section{无穷小量与无穷大量}
+\section{函数连续的概念}
+\section{连续函数的运算}
+\section{闭区间上连续函数的性质}
+\section{函数的一致连续性}
+
+\chapter{数学思想}
+\section{比喻}
+\subsection{类比}
+比如用学号到名字的对应关系称为一种映射，并且这种映射是一种双射。而学号到性别之间的关系是一种满射。诸如此类，还有很多可以类比的例子。使用类比可以降低对新东西的陌生感，更快地理解，并且可以加强记忆。
+
+Times New Roman
+
+\section{数形结合}
+\section{抽象}
+\end{document}
